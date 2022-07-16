@@ -2,13 +2,13 @@ import React from "react";
 import styled from 'styled-components/native';
 import { View, Text, SafeAreaView } from 'react-native';
 
-export const Login = ({ }) => {
+export const Menu = ({ }) => {
 
     return (
         <SafeArea>
             <View>
                 <Text style={{ backgroundColor: 'red' }}>
-                    Login
+                    Menu
                 </Text>
             </View>
         </SafeArea>

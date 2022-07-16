@@ -1,3 +1,3 @@
-import { Login as App } from '@pages/login';
+import { StackNavigator } from '@route/stack';
 
-export default App;
+export default StackNavigator;
