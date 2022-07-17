@@ -1,18 +1,31 @@
 import React, { memo } from "react";
-import { TextInput, View } from 'react-native';
 import styled from 'styled-components/native';
+import { TextInput, View, TextInputProps } from 'react-native';
 
-export const Input = ({ }) => {
+import Colors from '@enterprise/colors';
+
+type InputProps = {
+
+} & TextInputProps;
+
+const { BACKGROUND } = Colors;
+
+export const Input = memo(({ ...rest }: InputProps) => {
 
     return (
-        <View>
+        <Container>
             <TextInput
-
+                autoCorrect={false}
+                autoCapitalize='none'
+                allowFontScaling={false}
+                placeholderTextColor="black"
+                {...rest}
             />
-        </View>
+        </Container>
     )
-}
+});
 
-const SafeArea = styled.SafeAreaView`
-    flex: 1;
+const Container = styled.View`
+    width: 100%;
+    background-color: ${BACKGROUND};
 `;

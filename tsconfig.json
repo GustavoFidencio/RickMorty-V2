@@ -19,9 +19,9 @@
       "@assets/*": [
         "./src/assets/*"
       ],
-      // "@context/*": [
-      //   "./src/context/*"
-      // ],
+      "@enterprise/*": [
+        "src/enterprise/*"
+      ],
       // "@factory/*": [
       //   "./src/factory/*"
       // ],
