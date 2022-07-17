@@ -1,5 +1,7 @@
 const darkMode = {
     BACKGROUND: '#2f3136',
+
+    PRIMARY: '#ff7bbf'
 } as const
 
 

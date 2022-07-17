@@ -1,27 +1,17 @@
+import { s, SafeArea, Flex } from './styles';
+
 import React from "react";
-import styled from 'styled-components/native';
-import { View, Text, SafeAreaView } from 'react-native';
+import { StatusBar } from 'react-native';
 
 import { Input } from '@components/input';
+import { Button } from '@components/button';
 
-export const Login = ({ }) => {
-
-    return (
-        <SafeArea>
-            <View>
-                <Text style={{ backgroundColor: 'red' }}>
-                    Login
-                </Text>
-                <Input
-                    placeholder="Name"
-                />
-                <Input
-                />
-            </View>
-        </SafeArea>
-    )
-}
-
-const SafeArea = styled.SafeAreaView`
-    flex: 1;
-`;
+export const Login = ({ }) =>
+    <SafeArea>
+        <StatusBar barStyle='light-content' backgroundColor="black" />
+        <Flex>
+            <Input place="Email" />
+            <Input style={s.input} place="Senha" />
+            <Button text='Entrar' />
+        </Flex>
+    </SafeArea>
