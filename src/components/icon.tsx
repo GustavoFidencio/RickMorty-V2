@@ -32,11 +32,11 @@ type libs =
     'materialcommunityicons';
 
 type IconProps = {
-    lib: libs
-    color: string
+    lib?: libs
     name: string
+    color?: string
     size: number
-    style: StyleProp<TextStyle>
+    style?: StyleProp<TextStyle>
 };
 
 export const Icon = memo(({ name, lib = 'fontawesome', size, style, color }: IconProps) => {

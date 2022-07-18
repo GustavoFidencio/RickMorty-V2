@@ -22,9 +22,9 @@
       "@enterprise/*": [
         "src/enterprise/*"
       ],
-      // "@factory/*": [
-      //   "./src/factory/*"
-      // ],
+      "@factory/*": [
+        "./src/factory/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],

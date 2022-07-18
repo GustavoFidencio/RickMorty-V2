@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { TabNavigator } from './tab';
 import Colors from '@enterprise/colors';
 import { RootStackParamList } from './type';
 import { Login, Home, Splash } from '@pages/index';
@@ -15,7 +16,7 @@ export const StackNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Splash"
+                initialRouteName="Tab"
                 screenOptions={{
                     headerShown: false,
                     contentStyle: { backgroundColor: BACKGROUND }
@@ -24,6 +25,10 @@ export const StackNavigator = () => {
                 <Stack.Screen
                     name="Login"
                     component={Login}
+                />
+                <Stack.Screen
+                    name="Tab"
+                    component={TabNavigator}
                 />
                 <Stack.Screen
                     name="Splash"

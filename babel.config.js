@@ -11,7 +11,7 @@ module.exports = {
           '@assets': './src/assets',
           '@enterprise': './src/enterprise',
           // '@context': './src/context',
-          // '@factory': './src/factory',
+          '@factory': './src/factory',
           '@components': './src/components',
           '@pages': './src/pages',
           '@route': './src/route',
