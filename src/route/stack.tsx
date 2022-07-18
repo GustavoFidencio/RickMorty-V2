@@ -3,12 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { TabNavigator } from './tab';
-import Colors from '@enterprise/colors';
 import { RootStackParamList } from './type';
 import { Login, Splash } from '@pages/index';
 import { GlobalProvider } from '@hooks/globalApp';
-
-const { BACKGROUND } = Colors;
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -19,10 +16,7 @@ export const StackNavigator = () => {
             <NavigationContainer>
                 <Stack.Navigator
                     initialRouteName="Splash"
-                    screenOptions={{
-                        headerShown: false,
-                        contentStyle: { backgroundColor: BACKGROUND }
-                    }}
+                    screenOptions={{ headerShown: false }}
                 >
                     <Stack.Screen
                         name="Login"

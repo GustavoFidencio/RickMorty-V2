@@ -1,11 +1,11 @@
-
-import React, { useEffect, useState } from "react";
 import { SafeArea, List, Load, TextError, s } from './styles';
+
+import React, { useEffect, useState, useCallback } from "react";
 
 import { Character } from './types';
 import { StorageHome } from './storage';
-import { Header, ItemList, FooterList } from './commons';
 import { useGlobal } from "@hooks/globalApp";
+import { Header, ItemList, FooterList } from './commons';
 
 let lastPage = 0;
 let currentPage = 1;
@@ -21,23 +21,23 @@ export const Home = ({ }) => {
         _getCharacters();
     }, []);
 
-    const _disableLoads = () => {
+    const _disableLoads = useCallback(() => {
         setLoad(false);
         setLoadMore(false);
-    }
+    }, []);
 
-    const _getCharacters = () => {
+    const _getCharacters = useCallback(() => {
         StorageHome.getCharacteres(currentPage)
             .then(({ result, pages }) => {
                 currentPage++;
                 lastPage = pages;
                 setCharacters([...characters, ...result]);
             })
-            .catch(err => console.log("modal err"))
+            .catch(_err => console.log("modal err"))
             .finally(_disableLoads.bind(this));
-    };
+    }, [characters]);
 
-    const _getMoreCharacters = () => {
+    const _getMoreCharacters = useCallback(() => {
         if (
             loadMore ||
             !characters.length ||
@@ -45,7 +45,7 @@ export const Home = ({ }) => {
         ) return;
         setLoadMore(true);
         _getCharacters();
-    }
+    }, [loadMore, characters]);
 
     return (
         <SafeArea style={{ backgroundColor }} >

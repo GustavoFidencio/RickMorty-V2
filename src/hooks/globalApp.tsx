@@ -32,7 +32,7 @@ export const GlobalProvider = ({ children }: ProviderProps) => {
     const animate = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
-        Simple({ val: dark ? 100 : 0, ref: animate, delay: 800 });
+        Simple({ val: dark ? 100 : 0, ref: animate, delay: 400 });
     }, [dark]);
 
     useEffect(() => {
