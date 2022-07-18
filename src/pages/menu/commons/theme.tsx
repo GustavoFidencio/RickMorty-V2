@@ -2,6 +2,7 @@ import { Switch } from 'react-native';
 import React, { memo } from "react";
 import { Animated } from 'react-native';
 import styled from 'styled-components/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useGlobal } from '@hooks/globalApp';
 
@@ -9,8 +10,18 @@ export const Theme = memo(() => {
 
     const { dark, setDark, color } = useGlobal();
 
+    const _setStorage = async (val: boolean) => {
+        try {
+            const jsonValue = JSON.stringify(val)
+            await AsyncStorage.setItem('@dark', jsonValue)
+        } catch (e) {
+            return console.log("modal Error")
+        }
+    }
+
     const _toggle = (val: boolean) => {
         setDark(val);
+        _setStorage(val)
     };
 
     return (

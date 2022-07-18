@@ -1,4 +1,5 @@
 import { Animated, StatusBar } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, useContext, useRef, useState, useEffect } from "react";
 
 import Colors from '@enterprise/colors';
@@ -33,6 +34,25 @@ export const GlobalProvider = ({ children }: ProviderProps) => {
     useEffect(() => {
         Simple({ val: dark ? 100 : 0, ref: animate, delay: 800 });
     }, [dark]);
+
+    useEffect(() => {
+        _init();
+    }, []);
+
+    const _init = async () => {
+        let val = await _getTheme();
+        setDark(val);
+    }
+
+    const _getTheme = async (): Promise<boolean> => {
+        try {
+            const value = JSON.parse(await AsyncStorage.getItem('@dark'))
+            return Boolean(value);
+        } catch (e) {
+            console.log("Modal message error");
+            return true;
+        }
+    }
 
     const color = animate.interpolate({
         inputRange: [0, 100],

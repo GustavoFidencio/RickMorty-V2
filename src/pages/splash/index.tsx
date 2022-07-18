@@ -18,7 +18,7 @@ const { Simple } = Animate();
 
 export const Splash = ({ navigation }: SplashProps) => {
 
-    const { backgroundColor } = useGlobal();
+    const { backgroundColor, } = useGlobal();
     const opacity = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -28,8 +28,9 @@ export const Splash = ({ navigation }: SplashProps) => {
     const nav = () =>
         navigation.replace("Tab");
 
-    const _initial = () =>
+    const _initial = async () => {
         Simple({ val: 1, ref: opacity, delay: 1500, finish: nav.bind(this) });
+    }
 
     return (
         <SafeArea style={{ opacity, backgroundColor }}>
