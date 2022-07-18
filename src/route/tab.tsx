@@ -15,7 +15,7 @@ export const TabNavigator = () => {
     return (
         <NavigationContainer independent >
             <Tab.Navigator
-                initialRouteName="Home"
+                initialRouteName="Menu"
                 screenOptions={{
                     headerShown: false,
                 }}

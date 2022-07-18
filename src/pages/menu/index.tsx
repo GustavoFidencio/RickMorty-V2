@@ -1,20 +1,14 @@
+import { SafeArea } from './styles';
+
 import React from "react";
-import styled from 'styled-components/native';
-import { View, Text, SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 
-export const Menu = ({ }) => {
+import { Header, Theme } from './commons';
 
-    return (
-        <SafeArea>
-            <View>
-                <Text style={{ backgroundColor: 'red' }}>
-                    Menu
-                </Text>
-            </View>
-        </SafeArea>
-    )
-}
-
-const SafeArea = styled.SafeAreaView`
-    flex: 1;
-`;
+export const Menu = () =>
+    <SafeArea>
+        <View>
+            <Header />
+            <Theme />
+        </View>
+    </SafeArea>
