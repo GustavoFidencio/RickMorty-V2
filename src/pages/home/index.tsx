@@ -5,12 +5,14 @@ import { SafeArea, List, Load, TextError, s } from './styles';
 import { Character } from './types';
 import { StorageHome } from './storage';
 import { Header, ItemList, FooterList } from './commons';
+import { useGlobal } from "@hooks/globalApp";
 
 let lastPage = 0;
 let currentPage = 1;
 
 export const Home = ({ }) => {
 
+    const { backgroundColor } = useGlobal();
     const [isLoad, setLoad] = useState(true);
     const [loadMore, setLoadMore] = useState(true);
     const [characters, setCharacters] = useState<Character[]>([]);
@@ -46,7 +48,7 @@ export const Home = ({ }) => {
     }
 
     return (
-        <SafeArea>
+        <SafeArea style={{ backgroundColor }} >
             <Header />
             {
                 isLoad ?

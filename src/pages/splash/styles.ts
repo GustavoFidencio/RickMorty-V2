@@ -12,5 +12,4 @@ export const SafeArea = Animated.createAnimatedComponent(styled.SafeAreaView`
     flex: 1;
     align-items: center;
     justify-content: center;
-    opacity: ${({ opacity }) => opacity};
 `);

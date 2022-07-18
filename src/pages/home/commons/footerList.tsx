@@ -1,32 +1,40 @@
 import React, { memo } from "react";
+import { Animated } from 'react-native';
 import styled from 'styled-components/native';
+
+import { useGlobal } from "@hooks/globalApp";
 
 type FooterListProps = {
     finish: boolean
 };
 
-export const FooterList = memo(({ finish }: FooterListProps) =>
-    <Container>
-        {
-            !finish ?
-                <Load size="small" />
-                :
-                <Text>
-                    End of characters...
-                </Text>
-        }
-    </Container>
-);
+export const FooterList = memo(({ finish }: FooterListProps) => {
+
+    const { color } = useGlobal();
+
+    return (
+        <Container>
+            {
+                !finish ?
+                    <Load size="small" />
+                    :
+                    <Text style={{ color }} >
+                        End of characters...
+                    </Text>
+            }
+        </Container>
+    )
+});
 
 const Container = styled.View`
     width: 100%;
-    min-height: 10px;
     padding: 10px 0;
-`;
-
-const Text = styled.Text`
-    opacity: .6;
+    min-height: 10px;
 `;
 
 const Load = styled.ActivityIndicator`
 `;
+
+const Text = Animated.createAnimatedComponent(styled.Text`
+    opacity: .6;
+`);

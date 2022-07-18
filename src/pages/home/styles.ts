@@ -1,9 +1,5 @@
-import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
-
-export const SafeArea = styled.SafeAreaView`
-    flex: 1;
-`;
+import { StyleSheet, Animated } from 'react-native';
 
 export const List = styled.FlatList`
     flex: 1;
@@ -24,4 +20,8 @@ export const s = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     }
-})
+});
+
+export const SafeArea = Animated.createAnimatedComponent(styled.SafeAreaView`
+    flex: 1;
+`);
