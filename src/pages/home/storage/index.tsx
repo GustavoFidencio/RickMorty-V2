@@ -5,7 +5,7 @@ import { Character } from '../types';
 
 type CharacterAndPages = {
     pages: number
-    characters: [Character]
+    result: [Character]
 }
 
 export class StorageHome {
@@ -14,8 +14,8 @@ export class StorageHome {
         return new Promise((resolve, reject) => {
             Executor.run(new GetCharacteres(id))
                 .then(({ data: { results, info: { pages } } }) => {
-                    const characters: [Character] = results;
-                    resolve({ characters, pages });
+                    const result: [Character] = results;
+                    resolve({ result, pages });
                 })
                 .catch(({ response }) => {
                     console.log(response.status);

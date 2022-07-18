@@ -9,35 +9,31 @@ type ItemListProps = {
     character: Character
 };
 
-const Item = ({ character: { name, id, status, image, species } }: ItemListProps) => {
+const Item = ({ character: { name, id, status, image, species } }: ItemListProps) =>
+    <Container>
+        <ImageValidate
+            uri={image}
+            style={s.image}
+        />
+        <ContainerText>
+            <TextName numberOfLines={1}>
+                {name}
+            </TextName>
+            <SpecieName>
+                {species}
+            </SpecieName>
+        </ContainerText>
+        <ContainerStatus>
+            <TextId>
+                {id}
+            </TextId>
+            <SpecieName>
+                {status}
+            </SpecieName>
+        </ContainerStatus>
+    </Container>
 
-    return (
-        <Container>
-            <ImageValidate
-                uri={image}
-                style={s.image}
-            />
-            <ContainerText>
-                <TextName numberOfLines={1}>
-                    {name}
-                </TextName>
-                <SpecieName>
-                    {species}
-                </SpecieName>
-            </ContainerText>
-            <ContainerStatus>
-                <TextId>
-                    {id}
-                </TextId>
-                <SpecieName>
-                    {status}
-                </SpecieName>
-            </ContainerStatus>
-        </Container>
-    )
-}
-
-export const ItemList = memo(Item, (_old, _current) => false)
+export const ItemList = memo(Item, (_old, _current) => true)
 
 const TextId = styled.Text`
     opacity: .3;
@@ -67,6 +63,7 @@ const ContainerText = styled.View`
 `;
 
 const Container = styled.View`
+    width: 100%;
     height: 70px;
     margin-top: 10px;
     flex-direction: row;
