@@ -19,14 +19,17 @@
       "@assets/*": [
         "./src/assets/*"
       ],
+      "@components/*": [
+        "./src/components/*"
+      ],
       "@enterprise/*": [
         "src/enterprise/*"
       ],
       "@factory/*": [
         "./src/factory/*"
       ],
-      "@components/*": [
-        "./src/components/*"
+      "@hooks/*": [
+        "./src/hooks/*"
       ],
       "@pages/*": [
         "./src/pages/*"

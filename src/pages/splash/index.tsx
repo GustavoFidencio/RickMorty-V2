@@ -24,10 +24,10 @@ export const Splash = ({ navigation }: SplashProps) => {
     }, []);
 
     const nav = () =>
-        navigation.replace("Login");
+        navigation.replace("Tab");
 
     const _initial = () =>
-        Simple({ val: 1, ref: opacity, delay: 800, finish: nav.bind(this) });
+        Simple({ val: 1, ref: opacity, delay: 1500, finish: nav.bind(this) });
 
     return (
         <SafeArea opacity={opacity}>

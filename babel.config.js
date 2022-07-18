@@ -9,10 +9,10 @@ module.exports = {
         root: ['./src'],
         alias: {
           '@assets': './src/assets',
-          '@enterprise': './src/enterprise',
-          // '@context': './src/context',
-          '@factory': './src/factory',
           '@components': './src/components',
+          '@enterprise': './src/enterprise',
+          '@factory': './src/factory',
+          '@hooks': './src/hooks',
           '@pages': './src/pages',
           '@route': './src/route',
           '@services': './src/services',

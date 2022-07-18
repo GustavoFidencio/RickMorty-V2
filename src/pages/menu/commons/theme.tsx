@@ -1,23 +1,25 @@
 import { Switch } from 'react-native';
+import React, { memo } from "react";
+import { Animated } from 'react-native';
 import styled from 'styled-components/native';
-import React, { useState, memo } from "react";
+
+import { useGlobal } from '@hooks/globalApp';
 
 export const Theme = memo(() => {
 
-    const [dark, setDark] = useState(false);
+    const { dark, setDark, color } = useGlobal();
 
     const _toggle = (val: boolean) => {
-        console.log(val);
         setDark(val);
     };
 
     return (
         <Container>
             <ContainerText>
-                <TitleSetting>
+                <TitleSetting style={{ color }}>
                     Appearance Theme
                 </TitleSetting>
-                <TitleType>
+                <TitleType style={{ color }}>
                     {dark ? 'Dark' : 'Light'}
                 </TitleType>
             </ContainerText>
@@ -47,13 +49,13 @@ const Container = styled.View`
 const ContainerText = styled.View`
 `;
 
-const TitleSetting = styled.Text`
+const TitleSetting = Animated.createAnimatedComponent(styled.Text`
     font-size: 16px;
     font-weight: 300;
-`;
+`);
 
-const TitleType = styled.Text`
+const TitleType = Animated.createAnimatedComponent(styled.Text`
     opacity: .3;
     font-size: 16px;
     font-weight: 500;
-`;
+`);

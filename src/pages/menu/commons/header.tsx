@@ -1,13 +1,20 @@
 import React, { memo } from "react";
+import { Animated } from 'react-native';
 import styled from 'styled-components/native';
+import { useGlobal } from "@hooks/globalApp";
 
-export const Header = memo(() =>
-    <Container>
-        <TitlePage>
-            Menu
-        </TitlePage>
-    </Container>
-);
+export const Header = memo(() => {
+
+    const { color } = useGlobal();
+
+    return (
+        <Container>
+            <TitlePage style={{ color }}>
+                Menu
+            </TitlePage>
+        </Container>
+    )
+});
 
 const Container = styled.View`
     width: 100%;
@@ -16,7 +23,7 @@ const Container = styled.View`
     justify-content: space-between;
 `;
 
-const TitlePage = styled.Text`
+const TitlePage = Animated.createAnimatedComponent(styled.Text`
     font-size: 22px;
     font-weight: 600;
-`;
+`);
