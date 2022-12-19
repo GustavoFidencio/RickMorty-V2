@@ -6,7 +6,8 @@ import { NativeStackNavigationProp, } from '@react-navigation/native-stack'
 
 import { Input } from '@components/input';
 import { Button } from '@components/button';
-import { RootStackParamList } from '@route/type';
+import { RootStackParamList } from '@routes/types';
+import { useGlobal } from '@hooks/globalApp';
 
 type LoginProps = {
     navigation: NativeStackNavigationProp<RootStackParamList>

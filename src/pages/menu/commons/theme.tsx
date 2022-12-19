@@ -8,7 +8,8 @@ import { useGlobal } from '@hooks/globalApp';
 
 export const Theme = memo(() => {
 
-    const { dark, setDark, color } = useGlobal();
+    // const { dark, setDark, color } = useGlobal();
+    const { setDark, color, dark } = useGlobal();
 
     const _setStorage = async (val: boolean) => {
         try {

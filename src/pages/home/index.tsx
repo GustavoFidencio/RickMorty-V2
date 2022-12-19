@@ -10,7 +10,7 @@ import { Header, ItemList, FooterList } from './commons';
 let lastPage = 0;
 let currentPage = 1;
 
-export const Home = ({ }) => {
+export const Home = () => {
 
     const { backgroundColor } = useGlobal();
     const [isLoad, setLoad] = useState(true);
@@ -56,8 +56,8 @@ export const Home = ({ }) => {
                     :
                     <List
                         data={characters}
-                        contentContainerStyle={s.list}
                         onEndReachedThreshold={.8}
+                        contentContainerStyle={s.list}
                         onEndReached={_getMoreCharacters}
                         keyExtractor={({ id }: { id: number }) => String(id)}
                         renderItem={({ item }) => <ItemList character={item} />}

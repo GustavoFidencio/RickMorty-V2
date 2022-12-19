@@ -14,7 +14,7 @@ module.exports = {
           '@factory': './src/factory',
           '@hooks': './src/hooks',
           '@pages': './src/pages',
-          '@route': './src/route',
+          '@routes': './src/routes',
           '@services': './src/services',
         }
       }
