@@ -1,10 +1,9 @@
 import { SafeArea } from './styles';
 
 import React from "react";
-import { View } from 'react-native';
 
-import { Header, Theme } from './commons';
 import { useGlobal } from '@hooks/globalApp';
+import { Header, Theme, Logout } from './commons';
 
 export const Menu = () => {
 
@@ -12,10 +11,9 @@ export const Menu = () => {
 
     return (
         <SafeArea style={{ backgroundColor }}>
-            <View>
-                <Header />
-                <Theme />
-            </View>
+            <Header />
+            <Theme />
+            <Logout />
         </SafeArea>
     )
 }

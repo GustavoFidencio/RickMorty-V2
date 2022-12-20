@@ -26,7 +26,7 @@ export const Splash = ({ navigation }: SplashProps) => {
     }, []);
 
     const nav = () => {
-        navigation.replace("Tab");
+        navigation.navigate("Tab");
     }
 
     const _initial = async () => {

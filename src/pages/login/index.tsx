@@ -6,8 +6,8 @@ import { NativeStackNavigationProp, } from '@react-navigation/native-stack'
 
 import { Input } from '@components/input';
 import { Button } from '@components/button';
-import { RootStackParamList } from '@routes/types';
 import { useGlobal } from '@hooks/globalApp';
+import { RootStackParamList } from '@routes/types';
 
 type LoginProps = {
     navigation: NativeStackNavigationProp<RootStackParamList>
@@ -15,12 +15,14 @@ type LoginProps = {
 
 export const Login = ({ navigation }: LoginProps) => {
 
+    const { backgroundColor } = useGlobal();
+
     const nav = () => {
         navigation.replace('Tab')
     }
 
     return (
-        <SafeArea>
+        <SafeArea style={{ backgroundColor }}>
             <StatusBar barStyle='light-content' backgroundColor="black" />
             <Flex>
                 <Input place="Email" />

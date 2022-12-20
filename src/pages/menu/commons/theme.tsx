@@ -8,7 +8,6 @@ import { useGlobal } from '@hooks/globalApp';
 
 export const Theme = memo(() => {
 
-    // const { dark, setDark, color } = useGlobal();
     const { setDark, color, dark } = useGlobal();
 
     const _setStorage = async (val: boolean) => {
@@ -48,7 +47,6 @@ export const Theme = memo(() => {
 
 const Container = styled.View`
     width: 100%;
-    margin-top: 30px;
     flex-direction: row;
     padding: 5px 15px;
     align-items: center;
