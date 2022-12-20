@@ -1,16 +1,20 @@
 import { Animated, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { createContext, useContext, useRef, useState, useEffect } from "react";
+import React, { createContext, useContext, useRef, useState, useEffect, useReducer } from "react";
 
 import Colors from '@enterprise/colors';
 import { Animate } from '@services/animate';
+import { UserReducer } from './reducers/user';
+import { UserProps, UserDispatchProps } from './types';
 
 const Context = createContext({} as UseGlobalProps);
 
 type UseGlobalProps = {
     dark: boolean
+    user: UserProps
     setDark(val: boolean): void
     color: Animated.AnimatedInterpolation
+    dispatch(val: UserDispatchProps): void
     backgroundColor: Animated.AnimatedInterpolation
 }
 
@@ -24,11 +28,14 @@ type ProviderProps = {
 }
 
 const { Simple } = Animate();
+const initialUser = { name: '', email: '' };
 const { BACKGROUND_DARK, BACKGROUND_LIGHT } = Colors;
 
 export const GlobalProvider = ({ children }: ProviderProps) => {
 
     const [dark, setDark] = useState(true);
+    const [user, dispatch] = useReducer(UserReducer, initialUser);
+
     const animate = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -65,7 +72,17 @@ export const GlobalProvider = ({ children }: ProviderProps) => {
     });
 
     return (
-        <Context.Provider value={{ dark, setDark, color, backgroundColor }}>
+        <Context.Provider
+            value={{
+                user,
+                dispatch,
+
+                dark,
+                color,
+                setDark,
+                backgroundColor,
+            }}
+        >
             <StatusBar
                 animated
                 backgroundColor="black"

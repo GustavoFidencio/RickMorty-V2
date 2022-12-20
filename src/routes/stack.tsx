@@ -21,7 +21,7 @@ export const StackNavigator = () =>
     <GlobalProvider>
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Login"
+                initialRouteName="Splash"
                 screenOptions={{ headerShown: false }}
             >
                 {

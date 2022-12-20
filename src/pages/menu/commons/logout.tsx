@@ -9,10 +9,11 @@ import { RootStackParamList } from '@routes/types';
 
 export const Logout = memo(() => {
 
-    const { color } = useGlobal();
+    const { color, dispatch } = useGlobal();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const _logout = () => {
+        dispatch({ type: 'clear' });
         navigation.replace('Login');
     }
 
